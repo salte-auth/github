@@ -35,8 +35,7 @@ module.exports = function({ minified, es6, coverage, tests, server }) {
 
     plugins: [
       resolve({
-        module: false,
-        browser: true,
+        mainFields: ['main', 'browser'],
 
         extensions: [ '.mjs', '.js', '.jsx', '.json', '.ts' ]
       }),
