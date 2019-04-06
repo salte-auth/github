@@ -1,6 +1,6 @@
 import { SalteAuth } from '@salte-auth/salte-auth';
+import { Redirect } from '@salte-auth/redirect';
 import { GitHub } from '../src/github';
-import { NewTab } from './new-tab';
 
 const auth = new SalteAuth({
   providers: [
@@ -11,7 +11,7 @@ const auth = new SalteAuth({
   ],
 
   handlers: [
-    new NewTab({
+    new Redirect({
       default: true
     })
   ]

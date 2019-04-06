@@ -58,7 +58,9 @@ const auth = new SalteAuth({
   ],
 
   handlers: [
-    new Redirect()
+    new Redirect({
+      default: true
+    })
   ]
 });
 
