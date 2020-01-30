@@ -32,7 +32,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.8.4",
-    "@babel/preset-env": "^7.5.5",
+    "@babel/preset-env": "^7.8.4",
     "@babel/preset-typescript": "^7.3.3",
     "@salte-auth/salte-auth": "^3.0.0-rc.9",
     "@salte-auth/redirect": "^1.0.0-rc.7",
