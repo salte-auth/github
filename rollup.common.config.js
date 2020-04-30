@@ -6,24 +6,29 @@ const deindent = require('deindent');
 const { terser } = require('rollup-plugin-terser');
 const serve = require('rollup-plugin-serve');
 const copy = require('rollup-plugin-copy-assets-to');
+const builtins = require('rollup-plugin-node-builtins');
 
-const { name, contributors, version, browserslist } = require('./package.json');
+const { name, contributors, homepage, version, browserslist } = require('./package.json');
 
-module.exports = function({ minified, es6, coverage, tests, server }) {
+const [, scopedName] = name.split('/');
+
+module.exports = function({ minified, es6, tests, coverage, demo, server }) {
+  demo = demo || server;
+
   return {
-    input: server ? 'demo/index.ts' : 'src/github.ts',
+    input: demo ? 'demo/index.ts' : `src/${scopedName}.ts`,
     external: tests || server ? [] : ['@salte-auth/salte-auth'],
     output: {
-      file: `dist/github${minified ? '.min' : ''}.${es6 ? 'mjs' : 'js'}`,
+      file: `dist/${scopedName}${minified ? '.min' : ''}.${es6 ? 'mjs' : 'js'}`,
       format: es6 ? 'es' : 'umd',
-      name: 'salte.auth.github',
+      name: `salte.auth.${scopedName}`,
       sourcemap: tests ? 'inline' : true,
       exports: 'named',
       banner: deindent`
         /**
          * ${name} JavaScript Library v${version}
          *
-         * @license MIT (https://github.com/salte-auth/github/blob/master/LICENSE)
+         * @license MIT (${homepage}/blob/master/LICENSE)
          *
          * Made with ♥ by ${contributors.join(', ')}
          */
@@ -34,10 +39,13 @@ module.exports = function({ minified, es6, coverage, tests, server }) {
     },
 
     plugins: [
+      tests && builtins(),
+
       resolve({
         mainFields: ['main', 'browser'],
 
-        extensions: [ '.mjs', '.js', '.jsx', '.json', '.ts' ]
+        extensions: [ '.mjs', '.js', '.jsx', '.json', '.ts' ],
+        preferBuiltins: true
       }),
 
       commonjs({
@@ -50,6 +58,8 @@ module.exports = function({ minified, es6, coverage, tests, server }) {
       glob(),
 
       babel({
+        runtimeHelpers: true,
+
         presets: [
           '@babel/typescript',
           ['@babel/preset-env', {
@@ -61,11 +71,15 @@ module.exports = function({ minified, es6, coverage, tests, server }) {
           }]
         ],
 
-        plugins: coverage ? [['istanbul', {
+        plugins: [
+          ['@babel/plugin-transform-runtime', {
+            regenerator: true
+          }]
+        ].concat(coverage ? [['istanbul', {
           include: [
             'src/**/*.ts'
           ]
-        }]] : [],
+        }]] : []),
 
         exclude: 'node_modules/!(chai|sinon)/**',
         extensions: [".ts", ".js", ".jsx", ".es6", ".es", ".mjs"]
@@ -83,7 +97,7 @@ module.exports = function({ minified, es6, coverage, tests, server }) {
         }
       }),
 
-      server && copy({
+      demo && copy({
         assets: [
           './demo/index.html'
         ],
