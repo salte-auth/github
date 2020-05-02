@@ -1,6 +1,6 @@
 {
   "name": "@salte-auth/github",
-  "version": "1.0.0-rc.1",
+  "version": "3.0.0",
   "main": "dist/github.min.js",
   "module": "dist/github.min.mjs",
   "types": "dist/github.d.ts",
