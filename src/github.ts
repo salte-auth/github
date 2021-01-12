@@ -9,11 +9,11 @@ export class GitHub extends OAuth2Provider {
     });
   }
 
-  public get name() {
+  public get name(): string {
     return 'github';
   }
 
-  public get login() {
+  public get login(): string {
     return `${this.config.url}/login/oauth/authorize`;
   }
 }
