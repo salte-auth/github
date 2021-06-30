@@ -25,7 +25,7 @@
 
   [![NPM Version][npm-version-image]][npm-url]
   [![NPM Downloads][npm-downloads-image]][npm-url]
-  [![Travis][travis-ci-image]][travis-ci-url]
+  [![CI Build][github-actions-image]][github-actions-url]
   [![Coveralls][coveralls-image]][coveralls-url]
 
   [![semantic-release][semantic-release-image]][semantic-release-url]
@@ -66,8 +66,8 @@ auth.login('github');
 [npm-downloads-image]: https://img.shields.io/npm/dm/@salte-auth/github.svg?style=flat
 [npm-url]: https://npmjs.org/package/@salte-auth/github
 
-[travis-ci-image]: https://img.shields.io/travis/com/salte-auth/github/master.svg?style=flat
-[travis-ci-url]: https://travis-ci.com/salte-auth/github
+[github-actions-image]: https://github.com/salte-auth/github/actions/workflows/ci.yml/badge.svg?branch=master 
+[github-actions-url]: https://github.com/salte-auth/github/actions/workflows/ci.yml
 
 [coveralls-image]: https://img.shields.io/coveralls/salte-auth/github/master.svg
 [coveralls-url]: https://coveralls.io/github/salte-auth/github?branch=master
