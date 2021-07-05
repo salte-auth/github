@@ -1,10 +1,10 @@
 <h2 align="center">
   <div>
     <a href="https://github.com/salte-auth/github">
-      <img height="180px" src="https://raw.githubusercontent.com/salte-auth/logos/master/images/logo.svg?sanitize=true">
+      <img height="180px" src="https://raw.githubusercontent.com/salte-auth/logos/main/images/logo.svg?sanitize=true">
       <br>
       <br>
-      <img height="50px" src="https://raw.githubusercontent.com/salte-auth/logos/master/images/%40salte-auth/github.svg?sanitize=true">
+      <img height="50px" src="https://raw.githubusercontent.com/salte-auth/logos/main/images/%40salte-auth/github.svg?sanitize=true">
     </a>
   </div>
 </h2>
@@ -66,11 +66,11 @@ auth.login('github');
 [npm-downloads-image]: https://img.shields.io/npm/dm/@salte-auth/github.svg?style=flat
 [npm-url]: https://npmjs.org/package/@salte-auth/github
 
-[github-actions-image]: https://github.com/salte-auth/github/actions/workflows/ci.yml/badge.svg?branch=master 
+[github-actions-image]: https://github.com/salte-auth/github/actions/workflows/ci.yml/badge.svg?branch=main 
 [github-actions-url]: https://github.com/salte-auth/github/actions/workflows/ci.yml
 
-[coveralls-image]: https://img.shields.io/coveralls/salte-auth/github/master.svg
-[coveralls-url]: https://coveralls.io/github/salte-auth/github?branch=master
+[coveralls-image]: https://img.shields.io/coveralls/salte-auth/github/main.svg
+[coveralls-url]: https://coveralls.io/github/salte-auth/github?branch=main
 
 [commitizen-image]: https://img.shields.io/badge/commitizen-friendly-brightgreen.svg
 [commitizen-url]: https://commitizen.github.io/cz-cli/
